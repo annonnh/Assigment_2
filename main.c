@@ -36,6 +36,9 @@ float fResult;
 // PR Controller Inputs
 static float input[3];
 
+// PR Controller Outputs
+static float output[4];
+
 // PR Controller
 //static float output[4];
 
@@ -60,8 +63,8 @@ void main(void)
             if (SCI_getRxFIFOStatus(SCI0_BASE)>3)
             {
                 protocolReceiveData(SCI0_BASE,&input, 3*sizeof(float));
-                //fullbridge_pr_controller(input);
-                protocolSendData(SCI0_BASE, &input, 3*sizeof(float));
+                fullbridge_pr_controller(input, output);
+                protocolSendData(SCI0_BASE, &output, 4*sizeof(float));
                 //receive_value = true;
                 //CLA_forceTasks(myCLA0_BASE,CLA_TASKFLAG_1);
             }

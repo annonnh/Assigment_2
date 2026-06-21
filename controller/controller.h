@@ -46,4 +46,4 @@ static float vref;
 // PWM outputs
 static int S1, S2, S3, S4;
 
-void fullbridge_pr_controller (float* input_from_plecs);
+void fullbridge_pr_controller (float* input_from_plecs, float* output_from_plecs);

@@ -1,11 +1,11 @@
 #include "controller.h"
 #include <math.h>
 
-void fullbridge_pr_controller (float* input_from_plecs)
+void fullbridge_pr_controller (float* input_from_plecs, float* output_from_plecs)
 {
     N     = (int)(FCLK / (2.0 * FSW));  // = 375, carrier half-period
     M     = (int)(FCLK / FSW);          // = 750, control period
-
+    /*
     count      = 0;
     dir        = 1;
     ctrl_count = 0;
@@ -15,7 +15,7 @@ void fullbridge_pr_controller (float* input_from_plecs)
     xv1 = 0.0f;
     xv2 = 0.0f;
     carrier = 0.0f;
-
+    */
     // PWM CARRIER GENERATION (runs every FCLK tick)
     count += dir;
 
@@ -88,7 +88,17 @@ void fullbridge_pr_controller (float* input_from_plecs)
     // leg B (inverted reference)
     S3 = (-vref >= carrier);
     S4 = !S3;
-*/
+    */
+
+
+    output_from_plecs[0] = (vref >= carrier);
+    output_from_plecs[1] = !output_from_plecs[0];
+
+    // leg B (inverted reference)
+    output_from_plecs[2] = (-vref >= carrier);
+    output_from_plecs[3] = !output_from_plecs[2];
+
+
     //__________________________________________________________________
     // OUTPUTS
     /*
