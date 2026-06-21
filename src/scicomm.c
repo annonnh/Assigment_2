@@ -1,6 +1,6 @@
 #include "scicomm.h"
 #include <driverlib.h>
-
+/*
 void protocolSendData(unsigned int sci_base, void *data, uint16_t byteSize) {
     uint16_t sciBuffer;
     uint16_t *dataPtr = (uint16_t *)data;
@@ -21,5 +21,20 @@ void protocolReceiveData(unsigned int sci_base, void *data, uint16_t byteSize) {
             dataPtr[i / 2] = (dataPtr[i / 2] & 0xFF00) | (sciBuffer & 0x00FF);
         else
             dataPtr[i / 2] = (dataPtr[i / 2] & 0x00FF) | ((sciBuffer & 0x00FF) << 8);
+    }
+}
+*/
+
+void protocolSendData(unsigned int sci_base, void *data, uint16_t byteSize) {
+    uint8_t *bytePtr = (uint8_t *)data;
+    for (uint16_t i = 0; i < byteSize; i++) {
+        SCI_writeCharArray(sci_base, &bytePtr[i], 1);
+    }
+}
+
+void protocolReceiveData(unsigned int sci_base, void *data, uint16_t byteSize) {
+    uint8_t *bytePtr = (uint8_t *)data;
+    for (uint16_t i = 0; i < byteSize; i++) {
+        SCI_readCharArray(sci_base, &bytePtr[i], 1);
     }
 }

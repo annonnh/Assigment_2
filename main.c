@@ -6,6 +6,8 @@
 #include "device.h"
 #include "board.h"
 #include "scicomm.h"
+#include <math.h>
+#include "controller/controller.h"
 
 #define B0 0.001033
 #define B1 0.000767
@@ -26,9 +28,16 @@ float copy_vo[3] = {0};
 #pragma DATA_SECTION(fResult, "Cla1ToCpuMsgRAM");
 #pragma DATA_SECTION(x, "Cla1ToCpuMsgRAM");
 #pragma DATA_SECTION(y, "Cla1ToCpuMsgRAM");
+
 float x[3]={0};
 float y[3]={0};
 float fResult;
+
+// PR Controller Inputs
+static float input[3];
+
+// PR Controller
+//static float output[4];
 
 bool receive_value = false;
 
@@ -50,19 +59,22 @@ void main(void)
             
             if (SCI_getRxFIFOStatus(SCI0_BASE)>3)
             {
-                protocolReceiveData(SCI0_BASE,&vo,sizeof(float));
-                receive_value = true;
-                CLA_forceTasks(myCLA0_BASE,CLA_TASKFLAG_1);
+                protocolReceiveData(SCI0_BASE,&input, 3*sizeof(float));
+                //fullbridge_pr_controller(input);
+                protocolSendData(SCI0_BASE, &input, 3*sizeof(float));
+                //receive_value = true;
+                //CLA_forceTasks(myCLA0_BASE,CLA_TASKFLAG_1);
             }
         }
 
 }
 
+
 __interrupt void cla1Isr1 ()
 {
     if (receive_value)
     {
-        protocolSendData(SCI0_BASE, &y[0] ,sizeof(float));
+        //protocolSendData(SCI0_BASE, &y[0] ,sizeof(float));
         receive_value = false;
     }
 
