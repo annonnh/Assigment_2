@@ -4,7 +4,7 @@
 
 // Gains
 #define kp  41.88f
-#define kr  58472.85f
+#define kr 58472.85f
 #define k1  0.000025f
 #define k2  1.999f
 #define kdc (float)(1.0/VDC)
