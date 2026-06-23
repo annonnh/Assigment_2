@@ -60,14 +60,18 @@ void main(void)
         for(;;)
         {
             
-            if (SCI_getRxFIFOStatus(SCI0_BASE)>3)
-            {
-                protocolReceiveData(SCI0_BASE,&input, 3*sizeof(float));
-                fullbridge_pr_controller(input, output);
-                protocolSendData(SCI0_BASE, &output, 4*sizeof(float));
-                //receive_value = true;
-                //CLA_forceTasks(myCLA0_BASE,CLA_TASKFLAG_1);
-            }
+        // 3 floats from Windows = 12 bytes = 6 words on C2000
+        if (SCI_getRxFIFOStatus(SCI0_BASE) >= 6) 
+        {
+            // Read 6 words into your input array
+            protocolReceiveData(SCI0_BASE, &input, 6); 
+            
+            // Calculate the PR control loop
+            fullbridge_pr_controller(input, output);
+            
+            // 4 floats to Windows = 16 bytes = 8 words from C2000
+            protocolSendData(SCI0_BASE, &output, 8);
+        }
         }
 
 }

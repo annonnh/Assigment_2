@@ -1,0 +1,1652 @@
+Plecs {
+  Name          "fullbridge_monophase_SIL"
+  Version       "5.0"
+  CircuitModel  "DiscStateSpace"
+  StartTime     "0.0"
+  TimeSpan      "10/60"
+  Timeout       ""
+  Solver        "FixedStepDiscrete"
+  MaxStep       "1e-3"
+  InitStep      "-1"
+  FixedStep     "1/(15e6)"
+  Refine        "1"
+  ZCStepSize    "1e-9"
+  RelTol        "1e-3"
+  AbsTol        "-1"
+  TurnOnThreshold "0"
+  NonIdealSwitchResistance "1"
+  SyncFixedStepTasks "2"
+  UseSingleCommonBaseRate "2"
+  LossVariableLimitExceededMsg "3"
+  NegativeSwitchLossMsg "3"
+  DivisionByZeroMsg "3"
+  DatatypeOverflowMsg "3"
+  DatatypeInheritanceConflictMsg "2"
+  ContSampleTimeConflictMsg "2"
+  StiffnessDetectionMsg "2"
+  MaxConsecutiveZCs "1000"
+  AlgebraicLoopWithStateMachineMsg "3"
+  AssertionAction "1"
+  FixedPointDatatypeOverride "1"
+  InitializationCommands base64 "ZnMgPSAyMDAwMDsgJSBmcmVxdcOqbmNpYSBkZSBjb211d"
+"GHDp8OjbwpWZGMgPSA0MDA7ICUgdGVuc8OjbyBkZSBiYXJyYW1lbnRvIGMuYy4KZm4gPSA2MDsgIC"
+"UgZnJlcXXDqm5jaWEgZGEgcmVkZSBlbMOpdHJpY2EKazEgPSAwLjAwMDAyNTsgCmsyID0gMS45OTk"
+"7CmtkYyA9IDEvVmRjOwprcCA9IDQxLjg4OwprciA9IDU4NDcyLjg1OwpMID0gMC4wMDM7ClIgPSAw"
+"LjAzNzc7CnZnID0gMzExLjEzOw=="
+  InitialState  "1"
+  SystemState   ""
+  JacobianComputation "2"
+  TaskingMode   "1"
+  TaskConfigurations ""
+  CodeGenParameterInlining "2"
+  CodeGenFloatingPointFormat "2"
+  CodeGenAbsTimeUsageMsg "3"
+  CodeGenBaseName ""
+  CodeGenOutputDir ""
+  CodeGenExtraOpts ""
+  CodeGenTarget "Generic"
+  CodeGenTargetSettings ""
+  ExtendedMatrixPrecision "1"
+  MatrixSignificanceCheck "2"
+  RemoveUnusedStateSpaceOutputs "2"
+  EnableStateSpaceSplitting "2"
+  DisplayStateSpaceSplitting "1"
+  DiscretizationMethod "2"
+  ExternalModeSettings ""
+  AlgebraicLoopMethod "1"
+  AlgebraicLoopTolerance "1e-6"
+  ScriptsDialogGeometry ""
+  ScriptsDialogSplitterPos "0"
+  MixedSignalSolverBypassOperatingPoint "1"
+  MixedSignalSolverInitialConditions "2"
+  MixedSignalSolverMaxNewtonIterations "25"
+  MixedSignalSolverNumThreads "-1"
+  OperatingPointMaxNewtonIterations "50"
+  OperatingPointRelativeNewtonTolerance "1e-3"
+  OperatingPointAbsoluteNewtonTolerance "1e-12"
+  OperatingPointNodalVoltageNewtonTolerance "1e-6"
+  SpiceTemperature "27"
+  SpiceGMin     "0"
+  SpiceInductorRPar "0"
+  SpiceInductorRSer "0"
+  SpiceCapacitorGPar "0"
+  SpiceCapacitorRSer "0"
+  NetlistParserDetails "2"
+  InvalidNetlistFunctionEvaluationMsg "1"
+  IncompatibleInitialConditionMsg "2"
+  Schematic {
+    Location      [0, 24; 1536, 774]
+    ZoomFactor    1.14437
+    SliderPosition [0, 0]
+    ShowBrowser   off
+    BrowserWidth  100
+    Component {
+      Type          SignalDemux
+      Name          "Demux"
+      Show          off
+      Position      [820, 465]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Frame         [-7, -20; 2, 20]
+      Parameter {
+        Variable      "Width"
+        Value         "4"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto4"
+      Show          off
+      Position      [935, 440]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "S12"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "CustomMessage"
+        Value         ""
+        Show          off
+        Evaluate      on
+      }
+      Parameter {
+        Variable      "HighlightLevel"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto5"
+      Show          off
+      Position      [860, 450]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "S22"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "CustomMessage"
+        Value         ""
+        Show          off
+        Evaluate      on
+      }
+      Parameter {
+        Variable      "HighlightLevel"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto6"
+      Show          off
+      Position      [935, 460]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "S32"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "CustomMessage"
+        Value         ""
+        Show          off
+        Evaluate      on
+      }
+      Parameter {
+        Variable      "HighlightLevel"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          Goto
+      Name          "Goto7"
+      Show          off
+      Position      [860, 470]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Tag"
+        Value         "S42"
+        Show          off
+      }
+      Parameter {
+        Variable      "Visibility"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "CustomMessage"
+        Value         ""
+        Show          off
+        Evaluate      on
+      }
+      Parameter {
+        Variable      "HighlightLevel"
+        Value         "0"
+        Show          off
+      }
+    }
+    Component {
+      Type          CScript
+      Name          "modulador1"
+      Show          on
+      Position      [605, 345]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "DialogGeometry"
+        Value         "[462 0 1073 766]"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumInputs"
+        Value         "5"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumOutputs"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumContStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumDiscStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumZCSignals"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DirectFeedthrough"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "1/(15e6)"
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminalBasedSampleTimes"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Parameters"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "LangStandard"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "GnuExtensions"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "RuntimeCheck"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "HighlightLevel"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Declarations"
+        Value         base64 "Ly9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f"
+"X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KLy8gQmlibGlvdGVjYXMKCiNpbmNsdWRlI"
+"DxtYXRoLmg+CgovL19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX1"
+"9fX19fX19fX19fX19fX19fX19fXwovLyBQYXLDom1ldHJvcwoKI2RlZmluZSBWREMgNDAwLjAKCi8"
+"vI2RlZmluZSBGUyAyMDAwMC4wCi8vI2RlZmluZSBUUyAoMS4wL0ZTKQoKLy8gQ09SUkVDVCDigJQg"
+"bWF0Y2hlcyB5b3VyIEZDTEsgc2ltdWxhdGlvbiByYXRlCiNkZWZpbmUgRlMgICAgMTVlNgojZGVma"
+"W5lIFRTICAgICgxLjAvRlMpICAgLy8gPSA2LjY3ZS04IHNlY29uZHMKCi8qIEZpbHRybyAqLwojZG"
+"VmaW5lIEwxIDNlLTMKI2RlZmluZSBMMiAzZS0zCgojZGVmaW5lIFIxIDAuMDM3NwojZGVmaW5lIFI"
+"yIDAuMDM3NwoKLyogRXF1aXZhbGVudGVzICovCiNkZWZpbmUgTEVRIChMMSArIEwyKQojZGVmaW5l"
+"IFJFUSAoUjEgKyBSMikKCi8vX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX"
+"19fX19fX19fX19fX19fX19fX19fX19fX19fCi8vIENvZWZpY2llbnRlcyBkZSBUdXN0aW4KCiNkZW"
+"ZpbmUgQSAoKDIuMCpMRVEgLSBSRVEqVFMpLygyLjAqTEVRICsgUkVRKlRTKSkKI2RlZmluZSBCICh"
+"UUy8oMi4wKkxFUSArIFJFUSpUUykpCgovL19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f"
+"X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwovLyBFbnRyYWRhcwoKI2RlZmluZSBTM"
+"SBJbnB1dCgwKQojZGVmaW5lIFMyIElucHV0KDEpCiNkZWZpbmUgUzMgSW5wdXQoMikKI2RlZmluZS"
+"BTNCBJbnB1dCgzKQoKI2RlZmluZSBWVCBJbnB1dCg0KQoKLy9fX19fX19fX19fX19fX19fX19fX19"
+"fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KLy8gVmFyacOhdmVp"
+"cyBpbnRlcm5hcwoKc3RhdGljIGRvdWJsZSB2YTsKc3RhdGljIGRvdWJsZSB2YjsKCnN0YXRpYyBkb"
+"3VibGUgdmludjsKCi8qIGVzdGFkb3MgVHVzdGluICovCnN0YXRpYyBkb3VibGUgaV9rICA9IDAuMD"
+"sKc3RhdGljIGRvdWJsZSBpX2sxID0gMC4wOwpzdGF0aWMgZG91YmxlIHVfayAgPSAwLjA7CnN0YXR"
+"pYyBkb3VibGUgdV9rMSA9IDAuMDs="
+        Show          off
+      }
+      Parameter {
+        Variable      "StartFcn"
+        Value         base64 "Ly9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f"
+"X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KLy8gSW5pY2lhbGl6YcOnw6NvCgp2YSA9I"
+"DAuMDsKdmIgPSAwLjA7Cgp2aW52ID0gMC4wOwoKaV9rICA9IDAuMDsKaV9rMSA9IDAuMDsKCnVfay"
+"AgPSAwLjA7CnVfazEgPSAwLjA7"
+        Show          off
+      }
+      Parameter {
+        Variable      "OutputFcn"
+        Value         base64 "Ly9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f"
+"X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KLy8gVGVuc8OjbyBkbyBicmHDp28gZXNxd"
+"WVyZG8KLy8KLy8gdmEgPSArKFZkYy8yKSBxdWFuZG8gUzE9MSBlIFMyPTAKLy8gdmEgPSAtKFZkYy"
+"8yKSBxdWFuZG8gUzE9MCBlIFMyPTEKCnZhID0gKFZEQy8yLjApKihTMSAtIFMyKTsKCi8vX19fX19"
+"fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f"
+"X19fCi8vIFRlbnPDo28gZG8gYnJhw6dvIGRpcmVpdG8KLy8KLy8gdmIgPSArKFZkYy8yKSBxdWFuZ"
+"G8gUzM9MSBlIFM0PTAKLy8gdmIgPSAtKFZkYy8yKSBxdWFuZG8gUzM9MCBlIFM0PTEKCnZiID0gKF"
+"ZEQy8yLjApKihTMyAtIFM0KTsKCi8vX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19"
+"fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCi8vIFRlbnPDo28gZGlmZXJlbmNpYWwgZG8g"
+"aW52ZXJzb3IKCnZpbnYgPSB2YSAtIHZiOwoKLy9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX"
+"19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KLy8gRW50cmFkYSBkbyBzaXN0ZW"
+"1hCgp1X2sgPSB2aW52IC0gVlQ7CgovL19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19"
+"fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwovLyBNw6l0b2RvIGRlIFR1c3RpbgovLwov"
+"LyBpW2tdID0gQSppW2stMV0gKyBCKih1W2tdICsgdVtrLTFdKQoKaV9rID0gQSppX2sxICsgQiood"
+"V9rICsgdV9rMSk7CgovL19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX1"
+"9fX19fX19fX19fX19fX19fX19fX19fXwovLyBBdHVhbGl6YcOnw6NvIGRlIGVzdGFkb3MKCmlfazE"
+"gPSBpX2s7CnVfazEgPSB1X2s7CgovL19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f"
+"X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwovLyBTYcOtZGEKCk91dHB1dCgwKSA9IGlfa"
+"zsKT3V0cHV0KDEpID0gVlQ7Ci8vT3V0cHV0KDIpID0gdmludjs="
+        Show          off
+      }
+      Parameter {
+        Variable      "UpdateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "DerivativeFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "StoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "RestoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalDemux
+      Name          "Demux1"
+      Show          off
+      Position      [570, 530]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Frame         [-7, -20; 2, 20]
+      Parameter {
+        Variable      "Width"
+        Value         "4"
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux2"
+      Show          off
+      Position      [660, 530]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-2, -25; 7, 25]
+      Parameter {
+        Variable      "Width"
+        Value         "5"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          base64 "U2HDrWRhMg=="
+      Show          on
+      Position      [700, 615]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-15, -15; 15, 15]
+      Location      [0, 24; 1280, 837]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABEAP///wAABQAAAAMOAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":117,\"Labels\":[],"
+"\"VisualIdxs\":[]}"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      1
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          SignalDemux
+      Name          "Demux2"
+      Show          off
+      Position      [850, 345]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Frame         [-7, -10; 2, 10]
+      Parameter {
+        Variable      "Width"
+        Value         "2"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          base64 "ViBzYcOtZGEx"
+      Show          on
+      Position      [1075, 330]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-15, -15; 15, 15]
+      Location      [0, 24; 1536, 1021]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADAA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAYAAAAAVvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABEAP///wAABgAAAANqAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":108,\"Labels\":[\""
+"Delta\"],\"VisualIdxs\":[3]}"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "1"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          SignalMux
+      Name          "Mux3"
+      Show          off
+      Position      [970, 250]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Frame         [-2, -15; 7, 15]
+      Parameter {
+        Variable      "Width"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          CScript
+      Name          "modulador3"
+      Show          on
+      Position      [695, 390]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "DialogGeometry"
+        Value         "[530 152 738 565]"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumInputs"
+        Value         "3"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumOutputs"
+        Value         "4"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumContStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumDiscStates"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "NumZCSignals"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "DirectFeedthrough"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "1/(15e6)"
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminalBasedSampleTimes"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Parameters"
+        Value         "\"COM4\""
+        Show          off
+      }
+      Parameter {
+        Variable      "LangStandard"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "GnuExtensions"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "RuntimeCheck"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "HighlightLevel"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Declarations"
+        Value         base64 "I2luY2x1ZGUgPG1hdGguaD4KI2luY2x1ZGUgPHdpbmRvd3Mu"
+"aD4KI2luY2x1ZGUgPHN0ZGlvLmg+CgovL19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX"
+"19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwovLyBQYXLDom1ldHJvcyBkbyBQV00KI2"
+"RlZmluZSBGQ0xLIDE1ZTYKI2RlZmluZSBGU1cgMjAwMDAuMAoKI2RlZmluZSBWREMgNDAwLjAKCi8"
+"vX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCgpIQU5ETEUg"
+"c2VyaWFsSGFuZGxlOwoKLy9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwovLyBQV00gd"
+"mFyaWFibGVzCnN0YXRpYyBpbnQgTjsKc3RhdGljIGludCBjb3VudDsKc3RhdGljIGludCBkaXIgPS"
+"AxOwpzdGF0aWMgZG91YmxlIGNhcnJpZXI7Ci8vc3RhdGljIGludCBjdHJsX2NvdW50OyAgLy8gY29"
+"1bnRzIEZDTEsgdGlja3MgcGVyIGNvbnRyb2wgcGVyaW9kCnN0YXRpYyBpbnQgTTsgICAgICAgICAg"
+"IC8vIEZDTEsgdGlja3MgcGVyIGNvbnRyb2wgcGVyaW9kID0gRkNMSy9GU1cKc3RhdGljIGZsb2F0I"
+"HZyZWY7Ci8vIEFkZCB0aGlzIGxpbmUgdG8geW91ciBDb2RlIERlY2xhcmF0aW9ucyB0YWIgYWxvbm"
+"dzaWRlIE4sIE0sIGNvdW50LCBldGMuCmludCBjdHJsX3RpY2s7CgovLyBQV00gb3V0cHV0cwpzdGF"
+"0aWMgaW50IFMxLCBTMiwgUzMsIFM0Oy8vX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f"
+"X19fCgoKCmZsb2F0IGRhdGFfdG9fd3JpdGVbM107CmZsb2F0IG91dHB1dF9yZWNlaXZlZF9ieV9ib"
+"2FyZFs0XTsK"
+        Show          off
+      }
+      Parameter {
+        Variable      "StartFcn"
+        Value         "N     = (int)(FCLK / (2.0 * FSW));  // = 375, carrier h"
+"alf-period\n"
+"M     = (int)(FCLK / FSW);          // = 750, control period\n"
+"\n"
+"char fullPath[20]; // Buffer para armazenar o caminho completo, como \"\\\\\\"
+"\\.\\\\COM4\"\n"
+"snprintf(fullPath, sizeof(fullPath), \"\\\\\\\\.\\\\%s\", ParamStringData(0))"
+"; \n"
+"serialHandle = CreateFile(fullPath, GENERIC_READ | GENERIC_WRITE, 0, 0, OPEN_"
+"EXISTING, FILE_ATTRIBUTE_NORMAL, 0);\n"
+"// Do some basic settings\n"
+"DCB serialParams = { 0 };\n"
+"serialParams.DCBlength = sizeof(serialParams);\n"
+"GetCommState(serialHandle, &serialParams);\n"
+"serialParams.BaudRate = 115200;\n"
+"serialParams.ByteSize = 8;\n"
+"serialParams.StopBits = ONESTOPBIT;\n"
+"serialParams.Parity = NOPARITY;\n"
+"SetCommState(serialHandle, &serialParams);\n"
+"ctrl_tick = 0;"
+        Show          off
+      }
+      Parameter {
+        Variable      "OutputFcn"
+        Value         "// 1. PWM CARRIER GENERATION (Runs every single FCLK st"
+"ep)\n"
+"count += dir;\n"
+"if (count >= N) { count = N; dir = -1; }\n"
+"else if (count <= 0) { count = 0; dir = 1; }\n"
+"carrier = 2.0 * ((double)count / (double)N) - 1.0;\n"
+"\n"
+"// 2. GATED CONTROL LOOP (Only communicates every 750 steps = 20kHz)\n"
+"ctrl_tick++;\n"
+"\n"
+"if (ctrl_tick >= M) { \n"
+"    ctrl_tick = 0; \n"
+"\n"
+"    float iref = (float)InputSignal(0,0);\n"
+"    float iinv = (float)InputSignal(0,1);\n"
+"    float vt   = (float)InputSignal(0,2);\n"
+"\n"
+"    data_to_write[0] = iref;\n"
+"    data_to_write[1] = iinv;\n"
+"    data_to_write[2] = vt;\n"
+"\n"
+"    // Flush any leftover bytes in the Windows OS buffers to guarantee fresh "
+"data alignment\n"
+"    PurgeComm(serialHandle, PURGE_RXCLEAR | PURGE_TXCLEAR);\n"
+"\n"
+"    DWORD bytesWritten = 0;\n"
+"    DWORD bytesRead = 0;\n"
+"    \n"
+"    WriteFile(serialHandle, data_to_write, 12, &bytesWritten, NULL);\n"
+"    ReadFile(serialHandle, output_received_by_board, 16, &bytesRead, NULL);\n"
+"\n"
+"    if (bytesRead == 16) {\n"
+"        vref = output_received_by_board[0]; \n"
+"    }\n"
+"}\n"
+"\n"
+"// 3. APPLY SWITCHING STATES (Evaluated every step using the current vref)\n"
+"S1 = (vref >= carrier);\n"
+"S2 = !S1;\n"
+"S3 = (-vref >= carrier);\n"
+"S4 = !S3;\n"
+"\n"
+"Output(0) = S1;\n"
+"Output(1) = S2;\n"
+"Output(2) = S3;\n"
+"Output(3) = S4;"
+        Show          off
+      }
+      Parameter {
+        Variable      "UpdateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "DerivativeFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "TerminateFcn"
+        Value         "CloseHandle(serialHandle);"
+        Show          off
+      }
+      Parameter {
+        Variable      "StoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+      Parameter {
+        Variable      "RestoreCustomStateFcn"
+        Value         ""
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave2"
+      Show          on
+      Position      [785, 90]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "12.85"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "fn"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          Step
+      Name          "Step2"
+      Show          on
+      Position      [730, 170]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Time"
+        Value         "0.02085"
+        Show          off
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "After"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Product
+      Name          "Product3"
+      Show          off
+      Position      [785, 170]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "IconShape"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Inputs"
+        Value         "|**"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataTypeOverflowMode"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave8"
+      Show          on
+      Position      [730, 225]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "6.43"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "fn"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          Sum
+      Name          "Sum8"
+      Show          off
+      Position      [845, 90]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "IconShape"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Inputs"
+        Value         "|+-"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataTypeOverflowMode"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave3"
+      Show          on
+      Position      [250, 455]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "vg"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "fn"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          Sum
+      Name          "Sum6"
+      Show          off
+      Position      [295, 455]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "IconShape"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Inputs"
+        Value         "|+-"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataTypeOverflowMode"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Step
+      Name          "Step"
+      Show          on
+      Position      [215, 335]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Time"
+        Value         "0.02915"
+        Show          off
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "After"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Product
+      Name          "Product1"
+      Show          off
+      Position      [270, 335]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "IconShape"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Inputs"
+        Value         "|**"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataTypeOverflowMode"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave5"
+      Show          on
+      Position      [215, 390]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "248.93"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "fn"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          Step
+      Name          "Step1"
+      Show          on
+      Position      [380, 335]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Time"
+        Value         "0.12915"
+        Show          off
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "After"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Product
+      Name          "Product2"
+      Show          off
+      Position      [435, 335]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "IconShape"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Inputs"
+        Value         "|**"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataTypeOverflowMode"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          SineGenerator
+      Name          "Sine Wave6"
+      Show          on
+      Position      [380, 390]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Amplitude"
+        Value         "248.93"
+        Show          off
+      }
+      Parameter {
+        Variable      "Bias"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Frequency"
+        Value         "fn"
+        Show          off
+      }
+      Parameter {
+        Variable      "Phase"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Units"
+        Value         "3"
+        Show          off
+      }
+    }
+    Component {
+      Type          Sum
+      Name          "Sum7"
+      Show          off
+      Position      [345, 505]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "IconShape"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Inputs"
+        Value         "|++"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataTypeOverflowMode"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          SignalDemux
+      Name          "Demux3"
+      Show          off
+      Position      [810, 390]
+      Direction     right
+      Flipped       on
+      LabelPosition south
+      Frame         [-7, -20; 2, 20]
+      Parameter {
+        Variable      "Width"
+        Value         "4"
+        Show          off
+      }
+    }
+    Component {
+      Type          Scope
+      Name          base64 "ViBzYcOtZGEy"
+      Show          on
+      Position      [935, 385]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Frame         [-15, -25; 15, 25]
+      Location      [0, 24; 1536, 850]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAAKgA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGIA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABiAP///wAAAAMAAAYAAAAAVvw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABEAP///wAABgAAAAK/AAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":134,\"Labels\":[\""
+"Delta\"],\"VisualIdxs\":[3]}"
+      PlotPalettes  "AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+"AAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      Axes          "4"
+      TimeRange     "0.0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "0"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time / s"
+      ShowLegend    "1"
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Axis {
+        Name          ""
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Delay
+      Name          "Delay4"
+      Show          on
+      Position      [730, 345]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "N"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "X0"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "Ts"
+        Value         "1/(fs)"
+        Show          off
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
+      SrcTerminal   2
+      Points        [825, 440]
+      DstComponent  "Goto4"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
+      SrcTerminal   3
+      Points        [830, 460; 830, 450]
+      DstComponent  "Goto5"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
+      SrcTerminal   5
+      Points        [840, 480]
+      DstComponent  "Goto7"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
+      SrcTerminal   4
+      Points        [835, 470; 835, 460]
+      DstComponent  "Goto6"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux1"
+      SrcTerminal   2
+      Points        [610, 515; 610, 510]
+      DstComponent  "Mux2"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux1"
+      SrcTerminal   3
+      Points        [615, 525; 615, 520]
+      DstComponent  "Mux2"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux1"
+      SrcTerminal   4
+      Points        [620, 535; 620, 530]
+      DstComponent  "Mux2"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux1"
+      SrcTerminal   5
+      Points        [625, 545; 625, 540]
+      DstComponent  "Mux2"
+      DstTerminal   5
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux2"
+      SrcTerminal   1
+      Points        [670, 440; 560, 440]
+      DstComponent  "modulador1"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Mux3"
+      SrcTerminal   1
+      Points        [980, 320; 650, 320]
+      DstComponent  "modulador3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "modulador3"
+      SrcTerminal   2
+      Points        [760, 390]
+      Branch {
+        DstComponent  "Demux3"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [760, 455]
+        Branch {
+          Points        [760, 465]
+          DstComponent  "Demux"
+          DstTerminal   1
+        }
+        Branch {
+          Points        [550, 455]
+          DstComponent  "Demux1"
+          DstTerminal   1
+        }
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux2"
+      SrcTerminal   3
+      Points        [870, 350; 870, 260]
+      DstComponent  "Mux3"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Step2"
+      SrcTerminal   1
+      DstComponent  "Product3"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave8"
+      SrcTerminal   1
+      Points        [785, 225]
+      DstComponent  "Product3"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Product3"
+      SrcTerminal   1
+      Points        [845, 170]
+      DstComponent  "Sum8"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Step"
+      SrcTerminal   1
+      DstComponent  "Product1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave5"
+      SrcTerminal   1
+      Points        [270, 390]
+      DstComponent  "Product1"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Product1"
+      SrcTerminal   1
+      Points        [285, 430; 215, 430; 215, 510; 295, 510]
+      DstComponent  "Sum6"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Step1"
+      SrcTerminal   1
+      DstComponent  "Product2"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave6"
+      SrcTerminal   1
+      Points        [435, 390]
+      DstComponent  "Product2"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Product2"
+      SrcTerminal   1
+      Points        [465, 335; 465, 530]
+      DstComponent  "Sum7"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sum6"
+      SrcTerminal   1
+      Points        [320, 455]
+      DstComponent  "Sum7"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave2"
+      SrcTerminal   1
+      Points        [815, 90]
+      Branch {
+        DstComponent  "Sum8"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [815, 240]
+        DstComponent  "Mux3"
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Sine Wave3"
+      SrcTerminal   1
+      Points        [270, 455]
+      Branch {
+        DstComponent  "Sum6"
+        DstTerminal   2
+      }
+      Branch {
+        Points        [270, 580; 620, 580]
+        Branch {
+          Points        [630, 580; 630, 550]
+          DstComponent  "Mux2"
+          DstTerminal   6
+        }
+        Branch {
+          Points        [620, 615]
+          DstComponent  base64 "U2HDrWRhMg=="
+          DstTerminal   1
+        }
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux2"
+      SrcTerminal   2
+      Points        [860, 340; 860, 335; 875, 335; 875, 330; 925, 330]
+      Branch {
+        DstComponent  base64 "ViBzYcOtZGEx"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [925, 250]
+        DstComponent  "Mux3"
+        DstTerminal   3
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux3"
+      SrcTerminal   2
+      Points        [830, 375; 830, 370]
+      DstComponent  base64 "ViBzYcOtZGEy"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux3"
+      SrcTerminal   5
+      Points        [905, 405]
+      DstComponent  base64 "ViBzYcOtZGEy"
+      DstTerminal   4
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux3"
+      SrcTerminal   4
+      Points        [835, 395; 835, 390]
+      DstComponent  base64 "ViBzYcOtZGEy"
+      DstTerminal   3
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux3"
+      SrcTerminal   3
+      Points        [825, 385; 825, 380]
+      DstComponent  base64 "ViBzYcOtZGEy"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "modulador1"
+      SrcTerminal   2
+      DstComponent  "Delay4"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Delay4"
+      SrcTerminal   2
+      DstComponent  "Demux2"
+      DstTerminal   1
+    }
+  }
+}
