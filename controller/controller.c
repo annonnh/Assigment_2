@@ -1,3 +1,9 @@
+//*********************************************
+// Assignment 2 of Embedded Simulation Class.
+// Autor: Anonmixs Amaro Afonso
+//*********************************************
+
+// Includes
 #include "controller.h"
 
 // PR states (persist between calls)

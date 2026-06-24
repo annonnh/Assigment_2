@@ -1,24 +1,62 @@
+//*********************************************
+// Assignment 2 of Embedded Simulation Class.
+// Autor: Anonmixs Amaro Afonso
+//*********************************************
+
 #include "driverlib.h"
 #include "board.h"
 #include "shared_vars.h"
 
-#define B0 0.001033F
-#define B1 0.000767F
-#define B2 -0.000266F
-#define A1 -1.521886F
-#define A2 0.521886F
+#define VDC 400.0f
 
-#define REF 20
-#define UL 1
-#define LL 0
+// Gains
+#define kp  41.88f
+#define kr 58472.85f
+#define k1  0.000025f
+#define k2  1.999f
+#define kdc (float)(1.0/VDC)
+#define FCLK 15e6
+#define FSW 20000.0
 
 __interrupt void Cla1Task1()
 {
-    x[2] = x[1]; x[1] = x[0]; x[0] = REF - vo;
-    y[2] = y[1]; y[1] = y[0];
-    y[0] = B0*x[0] + B1*x[1] + B2*x[2] - A1*y[1] - A2*y[2];
 
-    y[0] = (y[0] > UL) ? UL : y[0];
-    y[0] = (y[0] < LL) ? LL : y[0];
-    
+    float iref = input[0];
+    float iinv = input[1];
+    float vt   = input[2];
+
+
+    ctrl_count = 0;
+    // ERROR
+    e = iref - iinv;
+
+    // PROPORTIONAL PART
+    float vp = kp * e;
+
+    // PR (resonant discrete implementation)
+    // vr[k] = k1*kr*(e[k] - e[k-2]) + k2*vr[k-1] - vr[k-2]
+    float vr = k1 * kr * (e - xe2) + k2 * xv1 - xv2;
+
+    // update error states
+    xe2 = xe1;
+    xe1 = e;
+
+    // update output states
+    xv2 = xv1;
+    xv1 = vr;
+
+    // FEEDFORWARD GRID VOLTAGE
+    float vff = vt;
+
+    // TOTAL CONTROLLER OUTPUT
+    vref = (vp + vr + vff) * kdc;
+    if (vref >  1.0f) vref =  1.0f;
+    if (vref < -1.0f) vref = -1.0f;
+
+
+    // Send back diagnostic values instead of gate states
+    output[0] = vref;
+    output[1] = vref;
+    output[2] = vref;
+    output[3] = e;
 }

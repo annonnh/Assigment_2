@@ -1,3 +1,7 @@
+//*********************************************
+// Assignment 2 of Embedded Simulation Class.
+// Autor: Anonmixs Amaro Afonso
+//*********************************************
 
 //
 // Included Files
@@ -9,39 +13,29 @@
 #include <math.h>
 #include "controller/controller.h"
 
-#define B0 0.001033
-#define B1 0.000767
-#define B2 -0.000266
-#define A1 -1.521886
-#define A2 0.521886
+// Variables from CPU that CLA uses
+#pragma DATA_SECTION(input,"CpuToCla1MsgRAM");
+float input[3] = {0};
 
-#define REF 20
-#define UL 1
-#define LL 0
+// Variables from CLA that CPU uses
+#pragma DATA_SECTION(output, "Cla1ToCpuMsgRAM");
+#pragma DATA_SECTION(e, "Cla1ToCpuMsgRAM");
+#pragma DATA_SECTION(xe1, "Cla1ToCpuMsgRAM");
+#pragma DATA_SECTION(xe2, "Cla1ToCpuMsgRAM");
+#pragma DATA_SECTION(xv1, "Cla1ToCpuMsgRAM");
+#pragma DATA_SECTION(xv2, "Cla1ToCpuMsgRAM");
+#pragma DATA_SECTION(vref, "Cla1ToCpuMsgRAM");
+#pragma DATA_SECTION(ctrl_count, "Cla1ToCpuMsgRAM");
+float output[4] = {0};
+float e   = 0.0f;
+float xe1 = 0.0f; // e[k-1]
+float xe2 = 0.0f; // e[k-2]
+float xv1 = 0.0f; // vr[k-1]
+float xv2 = 0.0f; // vr[k-2]
+float vref = 0.0f;
+int ctrl_count;  // counts FCLK ticks per control period
 
-#pragma DATA_SECTION(fVal,"CpuToCla1MsgRAM");
-#pragma DATA_SECTION(vo,"CpuToCla1MsgRAM");
-float vo = 0;
-float fVal = 0;
-float copy_vo[3] = {0};
-
-#pragma DATA_SECTION(fResult, "Cla1ToCpuMsgRAM");
-#pragma DATA_SECTION(x, "Cla1ToCpuMsgRAM");
-#pragma DATA_SECTION(y, "Cla1ToCpuMsgRAM");
-
-float x[3]={0};
-float y[3]={0};
-float fResult;
-
-// PR Controller Inputs
-static float input[3];
-
-// PR Controller Outputs
-static float output[4];
-
-// PR Controller
-//static float output[4];
-
+// flag to avoid CLA enter before a input value arrive.
 bool receive_value = false;
 
 
@@ -59,27 +53,26 @@ void main(void)
 
         for(;;)
         {
-            
-        if (SCI_getRxFIFOStatus(SCI0_BASE) >= 6)
-        {
-            protocolReceiveData(SCI0_BASE, &input, 6); 
-            fullbridge_pr_controller(input, output);
-            protocolSendData(SCI0_BASE, &output, 8);
-        }
-        
+            if (SCI_getRxFIFOStatus(SCI0_BASE) >= 6)
+            {
+                // function that parser the data in 8 bits chunks and sent to PLECS via SCI interface
+                protocolReceiveData(SCI0_BASE, &input, 6); 
+                receive_value = true; 
+                CLA_forceTasks(myCLA0_BASE,CLA_TASKFLAG_1);
+            }
         }
 
 }
 
-
+// CLA interrupt to calculate the control law of the conversor.
 __interrupt void cla1Isr1 ()
 {
     if (receive_value)
     {
-        //protocolSendData(SCI0_BASE, &y[0] ,sizeof(float));
+        // function that receive the data in 8 bits chunks via SCI from PLECS and uses it to the calculations
+        protocolSendData(SCI0_BASE, &output, 8);
         receive_value = false;
     }
 
     Interrupt_clearACKGroup(INT_myCLA01_INTERRUPT_ACK_GROUP);
 }
-
